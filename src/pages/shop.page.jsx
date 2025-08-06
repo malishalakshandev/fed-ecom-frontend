@@ -1,0 +1,42 @@
+import { useGetAllProductsQuery } from "@/lib/api";
+
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router";
+// import { getAllProducts } from "@/lib/product";
+
+function ShopPage() {
+
+    const { data: products, isLoading, isError, error } = useGetAllProductsQuery();
+
+    if (isLoading) {
+        return <p>Loading..</p>
+    }
+
+    console.log(products);
+    
+
+    // const { category } = useParams();
+    // const [ products, setProducts ] = useState([]);
+    // const [ error, setError ] = useState("");
+    // const [ isLoading, setIsLoading ] = useState(true);
+
+    // useEffect(() => {
+    //     console.log('run side effect')
+    //     getAllProducts(category)
+    //     .then(data => setProducts(data))
+    //     .catch((error) => setError(error.message))
+    //     .finally(() => setIsLoading(false));
+    // }, [category]);
+
+    return (
+        <main>
+            <h1>Shop Page</h1>
+            {/* <p>{category}</p> */}
+            <div>{isLoading ? "Loading" : "Done"}</div>
+            <div>{error}</div>
+            <div>{JSON.stringify(products)}</div>
+        </main>
+    );
+}
+
+export default ShopPage;
