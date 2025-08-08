@@ -23,6 +23,7 @@ export const putImage = async ({ file }) => {
   });
 
   return publicURL;
+  
 };
 
 // export const getAllProducts = async (category) => {
