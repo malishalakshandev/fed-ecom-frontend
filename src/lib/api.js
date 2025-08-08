@@ -49,9 +49,12 @@ export const Api = createApi({
     getProductsBySearch: build.query({
       query: (query) => `/products/search?search=${query}`,
     }),
+    getCheckoutSessionStatus: build.query({
+      query: (sessionId) => `/payments/session-status?session_id=${sessionId}`,
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllProductsQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllCategoriesQuery, useGetProductsBySearchQuery } = Api;
+export const { useGetAllProductsQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllCategoriesQuery, useGetProductsBySearchQuery, useGetCheckoutSessionStatusQuery } = Api;
