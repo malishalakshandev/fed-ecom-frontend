@@ -52,7 +52,8 @@ function ShippingAddressForm() {
         })),
       }).unwrap();
 
-      console.log('reponse:', reponse.data.orderId);
+      console.log('reponse:', reponse);
+      // console.log('reponse:', reponse.data.orderId);
 
     } catch (error) {
       console.log(error);
