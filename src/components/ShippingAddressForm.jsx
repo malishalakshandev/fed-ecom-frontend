@@ -44,15 +44,15 @@ function ShippingAddressForm() {
 
   async function onSubmit(values) {
     try {
-      const result = await createOrder({
+      const reponse = await createOrder({
         shippingAddress: values,
         orderItems: cart.map((item) => ({
           productId: item.product._id,
           quantity: item.quantity,
         })),
-      });
+      }).unwrap();
 
-      console.log(result);
+      console.log('reponse:', reponse);
 
     } catch (error) {
       console.log(error);
