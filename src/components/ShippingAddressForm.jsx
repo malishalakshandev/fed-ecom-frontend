@@ -18,6 +18,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod"
 import { useCreateOrderMutation } from "@/lib/api";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const shippingAddressFormSchema = z.object({
   line_1: z.string().min(1).max(50),
@@ -41,10 +42,11 @@ function ShippingAddressForm() {
   const cart = useSelector((state) => state.cart.cartItems);
   
   const [ createOrder, { isLoading }] = useCreateOrderMutation();
+  const navigate = useNavigate();
 
   async function onSubmit(values) {
     try {
-      const reponse = await createOrder({
+      const response = await createOrder({
         shippingAddress: values,
         orderItems: cart.map((item) => ({
           productId: item.product._id,
@@ -52,7 +54,7 @@ function ShippingAddressForm() {
         })),
       }).unwrap();
 
-      console.log('reponse:', reponse);
+      navigate(`/shop/payment?orderId=${response.orderId}`);
 
     } catch (error) {
       console.log(error);

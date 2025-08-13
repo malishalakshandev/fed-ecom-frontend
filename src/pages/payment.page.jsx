@@ -11,6 +11,8 @@ function PaymentPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const orderId = searchParams.get("orderId");
 
+  console.log('Payment OrderId:', orderId);
+
   if (cart.length === 0) {
     return <Navigate to="/" />;
   }
