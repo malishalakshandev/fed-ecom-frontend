@@ -8,6 +8,8 @@ const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const PaymentForm = ({ orderId }) => {
+
+  console.log('PaymentForm orderId:', orderId);
   
     const fetchClientSecret = useCallback(() => {
         // Create a Checkout Session
