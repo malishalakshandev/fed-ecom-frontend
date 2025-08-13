@@ -30,7 +30,9 @@ function CreateProductForm({ categories }) {
     const onSubmit = async (values) => {
         
         try {
-            await createProduct(values).unwrap();
+            // await createProduct(values).unwrap();
+            const result = await createProduct(values);
+            console.log(result);
         } catch (error) {
             console.log(error);
         }
