@@ -9,8 +9,7 @@ function PaymentPage() {
   const cart = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  // const orderId = searchParams.get("orderId");
-  const orderId = "689c5b017d2e829c9a5e52a9";
+  const orderId = searchParams.get("orderId");
 
   console.log('Payment OrderId:', orderId);
 
