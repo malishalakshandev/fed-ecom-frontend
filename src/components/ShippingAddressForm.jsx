@@ -50,7 +50,7 @@ function ShippingAddressForm() {
           productId: item.product._id,
           quantity: item.quantity,
         })),
-      });
+      }).unwrap();
 
       console.log('reponse:', reponse);
 
