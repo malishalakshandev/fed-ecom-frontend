@@ -8,6 +8,8 @@ function ShopPage() {
 
     const { data: products, isLoading, isError, error } = useGetAllProductsQuery();
 
+    console.log('test shop page');
+
     if (isLoading) {
         return <p>Loading..</p>
     }
