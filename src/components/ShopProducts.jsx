@@ -52,6 +52,7 @@ const ShopProducts = () => {
 
     const products = productsResponse?.data || [];
     const totalPages = productsResponse?.totalPages || 1;
+    const totalItems = productsResponse?.totalItems || 0;
 
     if (isProductsLoading || isCategoriesLoading || isColorsLoading) {
         return <FullPageSpinner />
@@ -67,6 +68,7 @@ const ShopProducts = () => {
                 categories={categories} 
                 colors={colors}
                 filterValues={filterValues}
+                totalItems={totalItems}
                 onFilterValuesChange={handleFilterValuesChange} // pass callback
             />    
 

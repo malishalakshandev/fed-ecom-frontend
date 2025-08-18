@@ -12,7 +12,7 @@ const filterProductFormSchema = z.object({
   priceSort: z.string().min(1),
 });
 
-const ShopProductFilter = ({ categories, colors, filterValues, onFilterValuesChange }) => {
+const ShopProductFilter = ({ categories, colors, filterValues, onFilterValuesChange, totalItems }) => {
 
     // Filter Product form
     const filterProductForm = useForm({
@@ -27,8 +27,12 @@ const ShopProductFilter = ({ categories, colors, filterValues, onFilterValuesCha
     
     return(
         <Form {...filterProductForm}>
-            <form>
-                <div className="flex gap-2 justify-end">
+            <form className="flex flex-col sm:flex-row justify-between">
+                <div className="">
+                    <h2 className="text-2xl sm:text-3xl">Shop ({totalItems})</h2>
+                </div>
+
+                <div className="flex flex-wrap max-sm:mt-[20px] max-sm:flex-col max-sm:gap-y-[8px] gap-2">
                     {/* filter by category */}
                     <div className="">
                         <FormField
@@ -37,7 +41,7 @@ const ShopProductFilter = ({ categories, colors, filterValues, onFilterValuesCha
                             render={({ field }) => (
                                 <FormItem>
                                 {/* <FormLabel>Product Colour</FormLabel> */}
-                                    <Select 
+                                    <Select
                                         value={field.value} // 5. set final value to this select to sync properly with form values
                                         onValueChange={(value) => { // trigger when use change value
                                             field.onChange(value); // 1. update local form state
@@ -46,7 +50,7 @@ const ShopProductFilter = ({ categories, colors, filterValues, onFilterValuesCha
                                             });
                                         }}
                                     >
-                                        <SelectTrigger className="w-full">
+                                        <SelectTrigger className="w-full border border-black rounded-full !text-black py-[20px]">
                                             <SelectValue placeholder="Filter by category" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -80,7 +84,7 @@ const ShopProductFilter = ({ categories, colors, filterValues, onFilterValuesCha
                                             });
                                         }}
                                     >
-                                        <SelectTrigger className="w-full">
+                                        <SelectTrigger className="w-full border border-black rounded-full !text-black py-[20px]">
                                             <SelectValue placeholder="Filter by color" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -115,7 +119,7 @@ const ShopProductFilter = ({ categories, colors, filterValues, onFilterValuesCha
                                             });
                                         }}
                                     >
-                                        <SelectTrigger className="w-full">
+                                        <SelectTrigger className="w-full border border-black rounded-full !text-black py-[20px]">
                                             <SelectValue placeholder="Sort by price" />
                                         </SelectTrigger>
                                         <SelectContent>
