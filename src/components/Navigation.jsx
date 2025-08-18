@@ -5,10 +5,12 @@ import { useSelector } from "react-redux";
 // import { useSelector } from "react-redux";
 import { SignedIn, UserButton, SignedOut } from "@clerk/clerk-react";
 import ProductSearchForm from "./ProductSearchForm";
+import { useGetAllCategoriesQuery } from "@/lib/api";
 
 function Navigation(){
 
     const cartItems = useSelector((state) => state.cart.cartItems);
+    const { data: categories, isLoading: isCategoriesLoading } = useGetAllCategoriesQuery();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const cartItems = useSelector((state) => state.cart.value);
@@ -23,65 +25,45 @@ function Navigation(){
   const closeMobileMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="bg-white border-b border-gray-200 px-4 lg:px-16">
+    <header className="bg-white border-b border-gray-200 px-4 md:px-[64px] lg:px-[64px]">
       <div>
 
         <div className="flex items-center justify-between h-16">
           
           {/* Logo */}
           <Link to="/" className="font-bold text-2xl">
-            Mebius
+            Logo
           </Link>
 
-          {/* Search Form */}
-          <ProductSearchForm />
-
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex gap-x-[20px]">
             {
-              [
-                {
-                  path: "/shop/shoes",
-                  label: "Shoes",
-                },
-                {
-                  path: "/shop/tshirts",
-                  label: "T-Shirt",
-                },
-                {
-                  path: "/shop/shorts",
-                  label: "Shorts",
-                },
-                {
-                  path: "/shop/pants",
-                  label: "Pants",
-                },
-                {
-                  path: "/shop/socks",
-                  label: "Socks",
-                }
-              ].map((item) => {
+              (categories || []).map((category) => {
                 return (
                   <Link
-                    key={ item.path }
-                    to={ item.path }
+                    key={ category._id }
+                    to={`/shop/${category.slug}`}
                     className="font-medium hover:text-gray-600"
                     >
-                    { item.label }
+                    { category.name }
                   </Link>
                 );
               })
             }
           </nav>
-          <div>
+          {/* <div className="bg-black py-[6px] px-[11px] rounded-[20px] text-white">
             <Link to="/admin/products/create">Create Product</Link>
-          </div>
+          </div> */}
 
+          
           {/* Icons */}
           <div className="flex items-center space-x-4">
-            <button aria-label="Search" className="p-1">
-              <Search size={20} />
-            </button>
+
+            <div>
+              {/* Search Form */}
+              <ProductSearchForm />
+            </div>
+            
             <Link
               to="/shop/cart"
               aria-label="Shopping Bag"

@@ -21,6 +21,7 @@ import ProtectedLayout from './layouts/protected.layout';
 import CreateProductPage from './pages/create-product.page';
 import AdminProtectedLayout from './layouts/admin-protected.layout';
 import PaymentPage from './pages/payment.page';
+import { Toaster } from 'react-hot-toast';
 
 
 // Import your Publishable Key
@@ -42,8 +43,10 @@ createRoot(document.getElementById('root')).render(
               <Route path="/" element={<HomePage />} />
               
               <Route path="/shop">
+
+                <Route index element={<ShopPage />} />
                 
-                <Route path=":category" element={<ShopPage />} />
+                <Route path=":categorySlug" element={<ShopPage />} />
                 
                 <Route path="cart" element={<CartPage />} />
                 
@@ -71,6 +74,7 @@ createRoot(document.getElementById('root')).render(
 
           </Routes>
         </BrowserRouter>
+         <Toaster position='bottom-center' />
       </Provider>
     </ClerkProvider>
 

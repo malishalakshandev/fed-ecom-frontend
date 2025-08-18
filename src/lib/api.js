@@ -26,8 +26,22 @@ export const Api = createApi({
     },
   }),
   endpoints: (build) => ({
-    getAllProducts: build.query({
-      query: () => `/products`,
+    getFilteredProducts: build.query({
+      query: (filterValues) => {
+        
+        const { categorySlug, colorId, priceSort, page, limit } = filterValues;
+
+        console.log('api:',filterValues);
+
+        const queryParams = new URLSearchParams();
+        if(categorySlug) queryParams.append('categorySlug', categorySlug);
+        if(colorId) queryParams.append('colorId', colorId);
+        if(priceSort) queryParams.append('priceSort', priceSort);
+        if(page) queryParams.append("page", page);
+        if(limit) queryParams.append("limit", limit);
+
+        return `products/filter?${queryParams.toString()}`;
+      }
     }),
     getAllCategories: build.query({
       query: () => `/categories`,
@@ -37,6 +51,16 @@ export const Api = createApi({
         url: "/products",
         method: "POST",
         body: product,
+      }),
+    }),
+    getAllColors: build.query({
+      query: () => `/colors`,
+    }),
+    createColor: build.mutation({
+      query: (color) => ({
+        url: "/colors",
+        method: "POST",
+        body: color,
       }),
     }),
     createOrder: build.mutation({
@@ -57,4 +81,4 @@ export const Api = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllProductsQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllCategoriesQuery, useGetProductsBySearchQuery, useGetCheckoutSessionStatusQuery } = Api;
+export const { useGetFilteredProductsQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllColorsQuery, useCreateColorMutation, useGetAllCategoriesQuery, useGetProductsBySearchQuery, useGetCheckoutSessionStatusQuery } = Api;

@@ -3,6 +3,7 @@ import CasualInspirations from "../components/CasualInspirations";
 import TrendingSection from "../components/TrendingSection";
 import Navigation from "../components/Navigation";
 import { useState } from "react";
+import ShopProductSection from "@/components/ShopProductSection";
 
 function HomePage() {
   
@@ -12,6 +13,7 @@ function HomePage() {
                 <HeroGrid />
                 <CasualInspirations />
                 <TrendingSection />
+                <ShopProductSection />
             </main>
         </>
     );

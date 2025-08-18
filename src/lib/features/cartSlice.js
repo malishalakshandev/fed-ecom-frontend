@@ -1,4 +1,3 @@
-import { products } from '@/data';
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {

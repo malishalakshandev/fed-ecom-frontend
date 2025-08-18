@@ -1,42 +1,10 @@
-import { useGetAllProductsQuery } from "@/lib/api";
-
-// import { useEffect, useState } from "react";
-// import { useParams } from "react-router";
-// import { getAllProducts } from "@/lib/product";
+import ShopProducts from "@/components/ShopProducts";
 
 function ShopPage() {
 
-    const { data: products, isLoading, isError, error } = useGetAllProductsQuery();
-
-    console.log('test shop page');
-
-    if (isLoading) {
-        return <p>Loading..</p>
-    }
-
-    console.log(products);
-    
-
-    // const { category } = useParams();
-    // const [ products, setProducts ] = useState([]);
-    // const [ error, setError ] = useState("");
-    // const [ isLoading, setIsLoading ] = useState(true);
-
-    // useEffect(() => {
-    //     console.log('run side effect')
-    //     getAllProducts(category)
-    //     .then(data => setProducts(data))
-    //     .catch((error) => setError(error.message))
-    //     .finally(() => setIsLoading(false));
-    // }, [category]);
-
     return (
-        <main>
-            <h1>Shop Page</h1>
-            {/* <p>{category}</p> */}
-            <div>{isLoading ? "Loading" : "Done"}</div>
-            <div>{error}</div>
-            <div>{JSON.stringify(products)}</div>
+        <main className="max-sm:px-[64px] sm:px-[64px] md:px-[64px] lg:px-[64px]">
+            <ShopProducts />
         </main>
     );
 }
