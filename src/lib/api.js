@@ -1,3 +1,4 @@
+import { categories } from '@/data';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // Load environment variable
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -26,12 +27,11 @@ export const Api = createApi({
     },
   }),
   endpoints: (build) => ({
+    // products
     getFilteredProducts: build.query({
       query: (filterValues) => {
         
         const { categorySlug, colorId, priceSort, page, limit } = filterValues;
-
-        console.log('api:',filterValues);
 
         const queryParams = new URLSearchParams();
         if(categorySlug) queryParams.append('categorySlug', categorySlug);
@@ -43,9 +43,6 @@ export const Api = createApi({
         return `products/filter?${queryParams.toString()}`;
       }
     }),
-    getAllCategories: build.query({
-      query: () => `/categories`,
-    }),
     createProduct: build.mutation({
       query: (product) => ({
         url: "/products",
@@ -53,6 +50,22 @@ export const Api = createApi({
         body: product,
       }),
     }),
+    getProductById: build.query({
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: "GET",
+      }),
+    }),
+    getProductsBySearch: build.query({
+      query: (query) => `/products/search?search=${query}`,
+    }),
+
+    // categories
+    getAllCategories: build.query({
+      query: () => `/categories`,
+    }),
+
+    // colors
     getAllColors: build.query({
       query: () => `/colors`,
     }),
@@ -63,6 +76,8 @@ export const Api = createApi({
         body: color,
       }),
     }),
+
+    // orders
     createOrder: build.mutation({
       query: (order) => ({
         url: "/orders",
@@ -70,9 +85,8 @@ export const Api = createApi({
         body: order,
       }),
     }),
-    getProductsBySearch: build.query({
-      query: (query) => `/products/search?search=${query}`,
-    }),
+    
+    // payments
     getCheckoutSessionStatus: build.query({
       query: (sessionId) => `/payments/session-status?session_id=${sessionId}`,
     }),
@@ -81,4 +95,4 @@ export const Api = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetFilteredProductsQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllColorsQuery, useCreateColorMutation, useGetAllCategoriesQuery, useGetProductsBySearchQuery, useGetCheckoutSessionStatusQuery } = Api;
+export const { useGetFilteredProductsQuery, useGetProductByIdQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllColorsQuery, useCreateColorMutation, useGetAllCategoriesQuery, useGetProductsBySearchQuery, useGetCheckoutSessionStatusQuery } = Api;

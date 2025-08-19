@@ -64,7 +64,7 @@ function ShippingAddressForm() {
 
   return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-y-6">
           <FormField
             control={form.control}
             name="line_1"
@@ -72,7 +72,7 @@ function ShippingAddressForm() {
               <FormItem>
                 <FormLabel>Address Line 1</FormLabel>
                 <FormControl>
-                  <Input placeholder="123/5" {...field} />
+                  <Input placeholder="Ex: 13 A Main street" {...field} />
                 </FormControl>
                 <FormDescription>
                   This is the address line 1
@@ -88,7 +88,7 @@ function ShippingAddressForm() {
               <FormItem>
                 <FormLabel>Address Line 2</FormLabel>
                 <FormControl>
-                  <Input placeholder="123/5" {...field} />
+                  <Input placeholder="Ex: Main road" {...field} />
                 </FormControl>
                 <FormDescription>
                   This is the address line 2
@@ -104,7 +104,7 @@ function ShippingAddressForm() {
               <FormItem>
                 <FormLabel>City</FormLabel>
                 <FormControl>
-                  <Input placeholder="123/5" {...field} />
+                  <Input placeholder="Ex: Colombo" {...field} />
                 </FormControl>
                 <FormDescription>
                   This is the city
@@ -120,7 +120,7 @@ function ShippingAddressForm() {
               <FormItem>
                 <FormLabel>Phone Number</FormLabel>
                 <FormControl>
-                  <Input placeholder="123/5" {...field} />
+                  <Input placeholder="Ex: +94771234567" {...field} />
                 </FormControl>
                 <FormDescription>
                   This is the phone number

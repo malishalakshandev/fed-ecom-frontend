@@ -3,9 +3,10 @@ import { Card } from "@/components/ui/card";
 function CartItem({ item }) {
   return (
     <Card className="p-4">
-      <div className="flex items-center space-x-4">
+      <div className="flex flex-col items-center md:flex-row space-x-4">
         <img
-          src={item.product.image || "/placeholder.svg"}
+          // src={item.product.image || "/placeholder.svg"}
+          src="/assets/images/476b2a224ae85cd40fd6b1c7d34bc9ae.png"
           alt={item.product.name}
           className="w-16 h-16 object-cover rounded"
         />

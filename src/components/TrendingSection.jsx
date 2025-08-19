@@ -12,7 +12,7 @@ function TrendingSection() {
   );
 
   return (
-    <section className="px-4 lg:px-16 py-8">
+    <section className="px-4 lg:px-16 sm:my-[10px]">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
         <h2 className="text-2xl sm:text-3xl">Trending Products</h2>
         <div className="flex flex-wrap items-center gap-2 sm:gap-x-4 max-w-full overflow-x-auto pb-2">

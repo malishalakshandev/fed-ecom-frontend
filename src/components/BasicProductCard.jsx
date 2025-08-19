@@ -1,18 +1,26 @@
 import { addToCart } from "@/lib/features/cartSlice";
 import { Button } from "./ui/button";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 const BasicProductCard = (props) => {
 
 
-      const dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleOpenSingleProductPage = (productId) => {
+        navigate(`/shop/products/${productId}`);
+    }
 
     return(
         <>
             {/* product item card */}
             <div className="border rounded-2xl pb-3">
-                {/* product image */}
-                <div className="h-64 sm:h-72 md:h-80 lg:h-96">
+                {/* product image (clickable) */}
+                <div 
+                    className="h-64 sm:h-72 md:h-80 lg:h-96 hover:cursor-pointer"
+                    onClick={() => handleOpenSingleProductPage(props.product._id)}>
                     <img
                         src="/assets/images/476b2a224ae85cd40fd6b1c7d34bc9ae.png"
                         alt={props.product.name}

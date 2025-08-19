@@ -25,7 +25,7 @@ function Navigation(){
   const closeMobileMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="bg-white border-b border-gray-200 px-4 md:px-[64px] lg:px-[64px]">
+    <header className="bg-white border-b border-gray-200 px-5 md:px-[64px] lg:px-[64px]">
       <div>
 
         <div className="flex items-center justify-between h-16">

@@ -22,6 +22,7 @@ import CreateProductPage from './pages/create-product.page';
 import AdminProtectedLayout from './layouts/admin-protected.layout';
 import PaymentPage from './pages/payment.page';
 import { Toaster } from 'react-hot-toast';
+import SingleProductPage from './pages/single-product.page';
 
 
 // Import your Publishable Key
@@ -44,12 +45,15 @@ createRoot(document.getElementById('root')).render(
               
               <Route path="/shop">
 
+                {/* Shop listing pages */}
                 <Route index element={<ShopPage />} />
-                
                 <Route path=":categorySlug" element={<ShopPage />} />
+
+                {/* Single Product Page */}
+                <Route path="products/:productId" element={<SingleProductPage />}/>
                 
+                {/* Cart & Checkout */}
                 <Route path="cart" element={<CartPage />} />
-                
                 <Route element={<ProtectedLayout />}>
                   <Route path="checkout" element={<CheckoutPage />} />
                 </Route>
@@ -60,6 +64,7 @@ createRoot(document.getElementById('root')).render(
 
               </Route>
               
+              {/* Admin Pages */}
               <Route element={<ProtectedLayout />}>
                 <Route element={<AdminProtectedLayout />}>
                   <Route path="admin/products/create" element={<CreateProductPage />} />
@@ -67,9 +72,12 @@ createRoot(document.getElementById('root')).render(
               </Route>
 
             </Route>
+
+            {/* Auth Pages */}
             <Route path="/sign-up" element={<SignUpPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
 
+            {/* Playground */}
             <Route path='/playground/use-effect-a' element={<UseEffect />}/>
 
           </Routes>

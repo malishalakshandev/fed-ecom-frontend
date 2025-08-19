@@ -10,7 +10,7 @@ function CartPage() {
     return (
         <main className="px-16 min-h-screen py-8">
             <h2 className="text-4xl font-bold">My Cart</h2>
-            <div className="mt-4 grid grid-cols-2 w-1/2 gap-x-4">
+            <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 w-[50%]">
                 {cart.map((item, index) => (
                 <CartItem key={index} item={item} />
                 ))}

@@ -16,7 +16,7 @@ function ProductSearchForm() {
       <Input
         type="text"
         placeholder="Search"
-        className="w-64 border border-black rounded-full !text-black py-[20px]"
+        className="w-[150px] sm:w-[256px] border border-black rounded-full !text-black py-[20px]"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />

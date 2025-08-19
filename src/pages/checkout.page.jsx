@@ -22,9 +22,9 @@ function CheckoutPage() {
                 ))}
                 </div>
             </div>
-            <div className="mt-4">
+            <div className="mt-8">
                 <h3 className="text-3xl font-semibold">Enter Shipping Address</h3>
-                <div className="mt-2 w-1/2">
+                <div className="mt-4 w-1/2">
                     <ShippingAddressForm />
                 </div>
             </div>

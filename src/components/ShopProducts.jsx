@@ -27,10 +27,6 @@ const ShopProducts = () => {
         },
         // { skip: !filterValues.categorySlug } // don’t fetch until ready
     );
-
-    console.log('initialCategorySlug:', navigationCategorySlug);
-    console.log('filterValues:', filterValues);
-    console.log('productsResponse:', productsResponse);
     
     //when user clicks a category in navigation, reset other filters
     useEffect(() => {
@@ -60,7 +56,7 @@ const ShopProducts = () => {
     
     return (
         <section
-            className="my-[50px]"
+            className="sm:my-[10px]"
         >
 
             {/* product filter & sort */}
