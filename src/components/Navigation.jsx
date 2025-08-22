@@ -36,7 +36,7 @@ function Navigation(){
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-x-[20px]">
+          <nav className="hidden md:flex gap-x-[20px] items-center">
             {
               (categories || []).map((category) => {
                 return (
@@ -50,6 +50,12 @@ function Navigation(){
                 );
               })
             }
+            <Link
+              to="/dashboard"
+              className="flex font-medium text-[14px] gap-x-2 bg-black px-[15px] py-[8px] rounded-[22px] text-white hover:bg-[#202020] hover:text-white"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-user-icon lucide-circle-user"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+            Dashboard</Link>
           </nav>
           {/* <div className="bg-black py-[6px] px-[11px] rounded-[20px] text-white">
             <Link to="/admin/products/create">Create Product</Link>

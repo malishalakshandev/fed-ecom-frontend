@@ -85,6 +85,18 @@ export const Api = createApi({
         body: order,
       }),
     }),
+    getOrdersByLoggedUserId: build.query({
+      query: () => ({ // logged logged userId get from the backend which sending by the frontend's Clerk Bearer token 
+        url:"/orders/logged-user-orders",
+        method: "GET",
+      })
+    }),
+    getOrders: build.query({
+      query: () => ({
+        url:"/orders",
+        method: "GET",
+      })
+    }),
     
     // payments
     getCheckoutSessionStatus: build.query({
@@ -95,4 +107,16 @@ export const Api = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetFilteredProductsQuery, useGetProductByIdQuery, useCreateOrderMutation, useCreateProductMutation, useGetAllColorsQuery, useCreateColorMutation, useGetAllCategoriesQuery, useGetProductsBySearchQuery, useGetCheckoutSessionStatusQuery } = Api;
+export const { 
+  useGetFilteredProductsQuery, 
+  useGetProductByIdQuery, 
+  useCreateOrderMutation, 
+  useCreateProductMutation, 
+  useGetAllColorsQuery, 
+  useCreateColorMutation, 
+  useGetAllCategoriesQuery, 
+  useGetProductsBySearchQuery, 
+  useGetCheckoutSessionStatusQuery,
+  useGetOrdersByLoggedUserIdQuery,
+  useGetOrdersQuery,
+} = Api;

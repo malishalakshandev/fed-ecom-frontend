@@ -18,11 +18,15 @@ import UseEffect from './playground/UseEffect';
 
 import { ClerkProvider } from '@clerk/clerk-react'
 import ProtectedLayout from './layouts/protected.layout';
-import CreateProductPage from './pages/create-product.page';
+import CreateProductPage from './pages/dashboard/create-product.page';
 import AdminProtectedLayout from './layouts/admin-protected.layout';
 import PaymentPage from './pages/payment.page';
 import { Toaster } from 'react-hot-toast';
 import SingleProductPage from './pages/single-product.page';
+import DashboardPage from './pages/dashboard/dashboard.page';
+import DashboardLayout from './layouts/dashboard.layout';
+import MyOrdersPage from './pages/dashboard/my-orders.page';
+import OrdersPage from './pages/dashboard/orders.page';
 
 
 // Import your Publishable Key
@@ -63,12 +67,24 @@ createRoot(document.getElementById('root')).render(
                 </Route>
 
               </Route>
+             
+            </Route>
+
+
+            <Route element={<DashboardLayout />}>
               
-              {/* Admin Pages */}
+              {/* Admin routes */}
               <Route element={<ProtectedLayout />}>
                 <Route element={<AdminProtectedLayout />}>
-                  <Route path="admin/products/create" element={<CreateProductPage />} />
+                  <Route path="admin/dashboard/create-product" element={<CreateProductPage />} />
+                  <Route path="admin/dashboard/orders" element={<OrdersPage />} />
                 </Route>
+              </Route>
+
+              {/* Customer routes */}
+              <Route element={<ProtectedLayout />}>
+                    <Route path="/dashboard/" element={<DashboardPage />}></Route>
+                    <Route path="/dashboard/my-orders" element={<MyOrdersPage />}></Route>
               </Route>
 
             </Route>
