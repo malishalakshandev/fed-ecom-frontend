@@ -27,6 +27,7 @@ import DashboardPage from './pages/dashboard/dashboard.page';
 import DashboardLayout from './layouts/dashboard.layout';
 import MyOrdersPage from './pages/dashboard/my-orders.page';
 import OrdersPage from './pages/dashboard/orders.page';
+import SalesPage from './pages/dashboard/sales.page';
 
 
 // Import your Publishable Key
@@ -78,6 +79,7 @@ createRoot(document.getElementById('root')).render(
                 <Route element={<AdminProtectedLayout />}>
                   <Route path="admin/dashboard/create-product" element={<CreateProductPage />} />
                   <Route path="admin/dashboard/orders" element={<OrdersPage />} />
+                  <Route path="admin/dashboard/sales" element={<SalesPage />} />
                 </Route>
               </Route>
 

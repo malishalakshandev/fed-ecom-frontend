@@ -97,6 +97,18 @@ export const Api = createApi({
         method: "GET",
       })
     }),
+    getSalesLast7Days: build.query({
+      query: () => ({
+        url:"/orders/sales/last-seven-days",
+        method: "GET",
+      })
+    }),
+    getSalesLast30Days: build.query({
+      query: () => ({
+        url:"/orders/sales/last-thirty-days",
+        method: "GET",
+      })
+    }),
     
     // payments
     getCheckoutSessionStatus: build.query({
@@ -119,4 +131,6 @@ export const {
   useGetCheckoutSessionStatusQuery,
   useGetOrdersByLoggedUserIdQuery,
   useGetOrdersQuery,
+  useGetSalesLast7DaysQuery,
+  useGetSalesLast30DaysQuery
 } = Api;
