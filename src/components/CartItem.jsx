@@ -6,7 +6,7 @@ function CartItem({ item }) {
       <div className="flex flex-col items-center md:flex-row space-x-4">
         <img
           // src={item.product.image || "/placeholder.svg"}
-          src="/assets/images/476b2a224ae85cd40fd6b1c7d34bc9ae.png"
+          src={item.product.image}
           alt={item.product.name}
           className="w-16 h-16 object-cover rounded"
         />

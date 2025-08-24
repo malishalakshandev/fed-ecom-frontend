@@ -22,7 +22,7 @@ const BasicProductCard = (props) => {
                     className="h-64 sm:h-72 md:h-80 lg:h-96 hover:cursor-pointer"
                     onClick={() => handleOpenSingleProductPage(props.product._id)}>
                     <img
-                        src="/assets/images/476b2a224ae85cd40fd6b1c7d34bc9ae.png"
+                        src={props.product.image}
                         alt={props.product.name}
                         className="rounded-2xl w-full h-full object-cover"
                     />

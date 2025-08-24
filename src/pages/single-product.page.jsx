@@ -26,7 +26,7 @@ const SingleProductPage = () => {
             {/* product image */}
             <div className="flex justify-end overflow-hidden rounded-[20px] max-md:order-2 max-md:mt-[40px] max-md:justify-center">
                 <img
-                    src="/assets/images/476b2a224ae85cd40fd6b1c7d34bc9ae.png"
+                    src={product?.image}
                     alt="Product"
                     className="w-[600px] h-[700px] object-cover rounded-[20px]"
                 />
