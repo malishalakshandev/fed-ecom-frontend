@@ -28,6 +28,7 @@ import DashboardLayout from './layouts/dashboard.layout';
 import MyOrdersPage from './pages/dashboard/my-orders.page';
 import OrdersPage from './pages/dashboard/orders.page';
 import SalesPage from './pages/dashboard/sales.page';
+import CompletePage from './pages/complete.page';
 
 
 // Import your Publishable Key
@@ -59,12 +60,13 @@ createRoot(document.getElementById('root')).render(
                 
                 {/* Cart & Checkout */}
                 <Route path="cart" element={<CartPage />} />
+                {/* <Route element={<ProtectedLayout />}>
+                  <Route path="checkout" element={<CheckoutPage />} />
+                </Route> */}
                 <Route element={<ProtectedLayout />}>
                   <Route path="checkout" element={<CheckoutPage />} />
-                </Route>
-
-                <Route element={<ProtectedLayout />}>
                   <Route path="payment" element={<PaymentPage />} />
+                  <Route path="complete" element={<CompletePage />} />
                 </Route>
 
               </Route>
